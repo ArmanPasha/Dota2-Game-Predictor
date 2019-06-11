@@ -1,7 +1,7 @@
 # Dota2-Game-Predictor
-This project uses machine learning (Logistic regression algorith) to calcuate the winning chance for Dota2 matches. The workflow is as follows.
+This project uses machine learning (Logistic regression algorithm) to calcuate the winning chance for Dota2 matches. The workflow is as follows:
 
-1. The `matchfiner.py` must be used first to retrieve all of the matches for the player. At this stage, player's Dota2 account ID is hard-coded in this script. It uses [Open Dota API](https://www.opendota.com/). As we are using the free version of the Open Dota, due to API call limit, this script may take some hours to retrieve all of the matches. The final result will be a large JSON text file named `matches.txt`.
+1. The `matchfiner.py` must be used first to retrieve all of the matches for the player. At this stage, player's Dota2 account ID is hard-coded in this script. It uses [Open Dota API](https://www.opendota.com/). As we are using the free version of the Open Dota, due to the API call limit, this script may take some hours to retrieve all of the matches. The final result will be a large JSON text file named `matches.txt`.
 
 2. The `featurize.py` then should run to open the  `matches.txt` and extract the required features of the matches. For this project, the following features of matches are used:
     * Radiant score - Dire score
