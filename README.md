@@ -1,5 +1,5 @@
 # Dota2-Game-Predictor
-This project uses machine learning (Logistic regression algorithm) to calcuate the winning chance for Dota2 matches. The workflow is as follows:
+This project uses machine learning (Logistic regression  and Neural Network algorithm) to calcuate the winning chance for Dota2 matches. The workflow is as follows:
 
 1. The `matchfiner.py` must be used first to retrieve all of the matches for the player. At this stage, player's Dota2 account ID is hard-coded in this script. It uses [Open Dota API](https://www.opendota.com/). As we are using the free version of the Open Dota, due to the API call limit, this script may take some hours to retrieve all of the matches. The final result will be a large JSON text file named `matches.txt`.
 
@@ -13,4 +13,6 @@ This project uses machine learning (Logistic regression algorithm) to calcuate t
     * A plot that shows the learning curve of the algorithm.
     * A plot that illustrates the dataset using x for Radiant win case and o for Dire win matches. Because there are three features, in order to plot a 2-D diagram, the score difference was used as the x-axis and average of gold and XP difference was used for the y-axis. Also, this plot includes a simple contour for seperating the win/lose case based on the parameter theta found by the logistic regression.
     * The accuracy of the algorithm for training data and test data.
+
+4. Alternatively, the `neuralnetwork.m` can be used for the same purpose. It uses a 5-layer architecture (3 hidden layers each has 5 units including bias units).
 
