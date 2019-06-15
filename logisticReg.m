@@ -1,4 +1,4 @@
-clear; clc; close;
+clear; clc; close all;
 data = load('dataset.txt');
 X = data(:, [1:3]);
 y = data(:, 4);
@@ -30,8 +30,8 @@ figure;
 plot([1:train_num], train_error, [1:train_num], test_error);
 
 %Plot data
-x1 = X(:, 2); %Score
-x2 = (X(:, 3) + X(:, 4))/2; %Avg of gold and XP
+x1 = X_norm(:, 2); %Score
+x2 = (X_norm(:, 3) + X_norm(:, 4))/2; %Avg of gold and XP
 figure;
 plot(x1(y==1), x2(y==1), 'rx', 'MarkerSize', 20 ...
       , x1(y==0), x2(y==0), 'bo', 'MarkerSize', 20);
@@ -40,8 +40,8 @@ ylabel('Avg gold & XP diff');
 hold on;
 
 
-u = linspace(-30, 50, 100);
-v = linspace(-1000, 5000, 6000);
+u = linspace(min(X_norm(:, 2)), max(X_norm(:, 2)), 100);
+v = linspace(-2, 2, 100);
 Z = zeros(length(v), length(u));
 for i=1:length(u)
   for j=1:length(v)
