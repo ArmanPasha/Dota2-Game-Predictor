@@ -5,6 +5,11 @@ y = data(:, 4);
 
 m = length(y);
 
+%Data is recenlty sorted, so we shuffle
+shuffle = randperm(m);
+X = X(shuffle, :);
+y = y(shuffle);
+
 lambda = 0.03;
 
 %Add bias column to X

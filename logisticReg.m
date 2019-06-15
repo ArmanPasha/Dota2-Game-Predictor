@@ -5,6 +5,11 @@ y = data(:, 4);
 
 m = length(y);
 
+%Data is recenlty sorted, so we shuffle
+shuffle = randperm(m);
+X = X(shuffle, :);
+y = y(shuffle);
+
 lambda = 0;
 
 %Add bias column to X
@@ -13,7 +18,7 @@ X = [ones(m, 1) X];
 [X_norm mu sigma] = normalize(X);
 
 %Split data to training set and test set 
-train_num = floor(0.7*m);
+train_num = floor(0.6*m);
 X_train = X_norm([1:train_num], :);
 
 X_test = X_norm([train_num + 1 : end], :);
@@ -25,9 +30,9 @@ y_train = y([1:train_num]);
 [theta] = trainer(X_train, y_train, lambda)
 
 %Draw the learn curve
-[train_error test_error] = learnCurve(X_train, y_train, X_test, y_test, lambda);
-figure;
-plot([1:train_num], train_error, [1:train_num], test_error);
+##[train_error test_error] = learnCurve(X_train, y_train, X_test, y_test, lambda);
+##figure;
+##plot([1:train_num], train_error, [1:train_num], test_error);
 
 %Plot data
 x1 = X_norm(:, 2); %Score
